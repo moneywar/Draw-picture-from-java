@@ -1,7 +1,62 @@
 import java.awt.Graphics;
 
 public class drawShape {
-    public drawShape(){}
+    public static void hatEye(Graphics g) {
+        //Left Side
+        Tools.cubicBezier(g, 167, 201, 150, 228, 193, 269, 229, 233);
+        Tools.cubicBezier(g, 229, 233, 245, 200, 188, 176, 167, 201);
+
+        Tools.cubicBezier(g, 225, 231, 204, 255, 172, 234, 185, 209);
+        Tools.cubicBezier(g, 225, 231, 240, 213, 200, 185, 185, 209);
+
+        //Right Side
+        Tools.cubicBezier(g, 433, 201, 450, 228, 407, 269, 371, 233);
+        Tools.cubicBezier(g, 371, 233, 355, 200, 412, 176, 433, 201);
+
+        Tools.cubicBezier(g, 375, 231, 396, 255, 428, 234, 415, 209);
+        Tools.cubicBezier(g, 375, 231, 360, 213, 400, 185, 415, 209);
+    }
+    public static void horn(Graphics g) {
+        //Left Side
+        Tools.cubicBezier(g, 130, 146, 130, 124, 110, 100, 110, 82);
+        Tools.cubicBezier(g, 110, 82, 108, 46, 84, 21, 90, 10);
+        Tools.cubicBezier(g, 90, 10, 135, 19, 121, 61, 127, 87);
+        Tools.cubicBezier(g, 127, 87, 142, 117, 151, 58, 167, 54);
+        Tools.cubicBezier(g, 167, 54, 195, 73, 133, 101, 174, 146);
+
+        //Right Side
+        Tools.cubicBezier(g, 470, 146, 470, 124, 490, 100, 490, 82);
+        Tools.cubicBezier(g, 490, 82, 492, 46, 516, 21, 510, 10);
+        Tools.cubicBezier(g, 510, 10, 465, 19, 479, 61, 473, 87);
+        Tools.cubicBezier(g, 473, 87, 458, 117, 449, 58, 433, 54);
+        Tools.cubicBezier(g, 433, 54, 405, 73, 467, 101, 426, 146);
+    }
+    public static void orangePart(Graphics g) {
+        //Left Side
+        Tools.quadraticBezier(g, 91, 348, 75, 337, 75, 334);
+        Tools.quadraticBezier(g, 75, 334, 85, 331, 86, 328);
+        Tools.quadraticBezier(g, 86, 328, 65, 314, 60, 293);
+        Tools.quadraticBezier(g, 60, 293, 73, 293, 79, 286);
+        Tools.BresenhamLine(g, 89, 278, 100, 266);
+
+        Tools.cubicBezier(g, 167, 201, 141, 191, 118, 172, 125, 145);
+        Tools.cubicBezier(g, 125, 145, 146, 155, 185, 138, 189, 160);
+        Tools.cubicBezier(g, 188, 163, 211, 145, 220, 168, 220, 175);
+        Tools.cubicBezier(g, 218, 178, 244, 143, 284, 223, 230, 215);
+
+        //Right Side
+        Tools.quadraticBezier(g, 509, 348, 525, 337, 525, 334);
+        Tools.quadraticBezier(g, 525, 334, 515, 331, 514, 328);
+        Tools.quadraticBezier(g, 514, 328, 535, 314, 540, 293);
+        Tools.quadraticBezier(g, 540, 293, 527, 293, 521, 286);
+        Tools.BresenhamLine(g, 511, 278, 500, 266);
+
+        Tools.cubicBezier(g, 433, 201, 459, 191, 482, 172, 475, 145);
+        Tools.cubicBezier(g, 475, 145, 454, 155, 415, 138, 411, 160);
+        Tools.cubicBezier(g, 412, 163, 389, 145, 380, 168, 380, 175);
+        Tools.cubicBezier(g, 382, 178, 356, 143, 316, 223, 370, 215);
+    }
+
     public static void yelloPartHat(Graphics g) {
         //Left Side
         Tools.quadraticBezier(g, 151, 300, 107, 314, 102, 293);
@@ -15,14 +70,45 @@ public class drawShape {
 
         Tools.quadraticBezier(g, 189, 264, 192, 277, 187, 282);
 
-        // Tools.quadraticBezier(g, 140, 271, 124, 245, 159, 248);
-        // Tools.quadraticBezier(g, 142, 279, 166, 282, 162, 271);
+        Tools.quadraticBezier(g, 158, 248, 120, 246, 132, 270);
+        Tools.quadraticBezier(g, 143, 280, 167, 282, 163, 272);
+        Tools.quadraticBezier(g, 155, 263, 150, 258, 142, 263);
+
+        //Right Side
+        Tools.quadraticBezier(g, 449, 300, 493, 314, 498, 293);
+        Tools.quadraticBezier(g, 498, 293, 490, 295, 494, 294);
+
+        Tools.quadraticBezier(g, 498, 278, 509, 260, 498, 249);
+        Tools.quadraticBezier(g, 498, 249, 493, 254, 488, 251);
+        Tools.quadraticBezier(g, 488, 251, 496, 249, 493, 225);
+        Tools.quadraticBezier(g, 493, 225, 483, 242, 452, 230);
+        Tools.quadraticBezier(g, 452, 230, 422, 228, 414, 252);
+
+        Tools.quadraticBezier(g, 411, 264, 408, 277, 413, 282);
+
+        Tools.quadraticBezier(g, 442, 248, 480, 246, 468, 270);
+        Tools.quadraticBezier(g, 457, 280, 433, 282, 437, 272);
+        Tools.quadraticBezier(g, 445, 263, 450, 258, 458, 263);
     }
 
     public static void redPartHat(Graphics g) {
         //Left Side
-        Tools.quadraticBezier(g, 91, 347, 37, 350, 51, 280);
-        //Tools.BresenhamLine(g, 57, 269, 97, 269);
+        Tools.cubicBezier(g, 89, 347, 56, 345, 42, 317, 52, 276);
+
+        Tools.BresenhamLine(g, 58, 270, 97, 270);
+        Tools.cubicBezier(g, 97, 270, 86, 263, 82, 243, 83, 228);
+        Tools.quadraticBezier(g, 83, 228, 92, 244, 104, 251);
+        Tools.cubicBezier(g, 104, 251, 88, 228, 85, 177, 101, 167);
+        Tools.cubicBezier(g, 101, 167, 109, 176, 126, 180, 133, 178);
+
+        //Left Side
+        Tools.cubicBezier(g, 511, 347, 544, 345, 558, 317, 548, 276);
+
+        Tools.BresenhamLine(g, 542, 270, 503, 270);
+        Tools.cubicBezier(g, 503, 270, 514, 263, 518, 243, 517, 228);
+        Tools.quadraticBezier(g, 517, 228, 508, 244, 496, 251);
+        Tools.cubicBezier(g, 496, 251, 512, 228, 515, 177, 499, 167);
+        Tools.cubicBezier(g, 499, 167, 491, 176, 474, 180, 467, 178);
     }
 
     public static void middleMedal(Graphics g) {
@@ -38,39 +124,25 @@ public class drawShape {
         Tools.quadraticBezier(g, 333, 229, 343, 250, 327, 256);
         Tools.quadraticBezier(g, 327, 256, 319, 260, 300, 251);
 
-        //Top Part Left
+        //Top Part
         Tools.quadraticBezier(g, 216, 163, 254, 132, 300, 156);
+        Tools.quadraticBezier(g, 384, 163, 346, 132, 300, 156);
     }
 
     public static void moustacheHat(Graphics g) {
         //Left Side
-        // Tools.quadraticBezier(g, 266, 258, 258, 225, 168, 258);
-        // Tools.quadraticBezier(g, 168, 258, 120, 280, 102, 281);
-        // Tools.quadraticBezier(g, 102, 281, 62, 291, 12, 239);
-
         Tools.cubicBezier(g, 12, 239, 123, 337, 169, 213, 266, 251);
         Tools.cubicBezier(g, 12, 239, 107, 344, 136, 253, 266, 251);
 
-        // Tools.quadraticBezier(g, 12, 239, 41, 288, 101, 293);
-        // Tools.quadraticBezier(g, 101, 293, 126, 290, 145, 279);
-        // Tools.quadraticBezier(g, 145, 279, 243, 239, 266, 258);
-
-        // Tools.quadraticBezier = new CubicTools.quadraticBezier.Float(12,239,107,344,136,253,266,251);
-        // g.draw(Tools.quadraticBezier);
-
         //Right Side
-        Tools.quadraticBezier(g, 334, 258, 342, 225, 432, 258);
-        Tools.quadraticBezier(g, 432, 258, 480, 280, 498, 281);
-        Tools.quadraticBezier(g, 498, 281, 538, 291, 588, 239);
 
-        Tools.quadraticBezier(g, 588, 239, 559, 288, 499, 293);
-        Tools.quadraticBezier(g, 499, 293, 474, 290, 455, 279);
-        Tools.quadraticBezier(g, 455, 279, 357, 239, 334, 258);
+        Tools.cubicBezier(g, 588, 239, 477, 337, 431, 213, 334, 251);
+        Tools.cubicBezier(g, 588, 239, 493, 344, 464, 253, 334, 251);
     }
     
     public static void shirt(Graphics g) {
         //Left Side
-        Tools.BresenhamLine(g, 271, 535, 271, 560);
+        Tools.BresenhamLine(g, 271, 533, 271, 560);
         Tools.quadraticBezier(g, 270, 551, 256, 564, 232, 551);
         Tools.quadraticBezier(g, 232, 551, 207, 537, 198, 560);
 
@@ -83,7 +155,7 @@ public class drawShape {
         Tools.quadraticBezier(g, 283, 578, 300, 590, 300, 600);
 
         //Right Side
-        Tools.BresenhamLine(g, 329, 535, 329, 560);
+        Tools.BresenhamLine(g, 329, 533, 329, 560);
         Tools.quadraticBezier(g, 330, 551, 344, 564, 368, 551);
         Tools.quadraticBezier(g, 368, 551, 393, 537, 402, 560);
 

@@ -1,13 +1,13 @@
-//package mainProject;
 import java.awt.Graphics;
 
 import javax.swing.*;
 
 public class Canvas extends JPanel {
+    private static JFrame f;
     public static void main(String[] args) {
         Canvas m = new Canvas();
 
-        JFrame f = new JFrame();
+        f = new JFrame();
         f.add(m);
         f.setTitle("Gradient");
         f.setSize(600, 600);
@@ -17,6 +17,7 @@ public class Canvas extends JPanel {
 
     public void paintComponent(Graphics g) {
         Tools.setStroke(4);
+        //Body
         drawShape.Head(g);
         drawShape.mouse(g);
         drawShape.eye(g);
@@ -25,9 +26,14 @@ public class Canvas extends JPanel {
         drawShape.lowerHat(g);
         drawShape.hand(g);
         drawShape.shirt(g);
+
+        //Hat
         drawShape.moustacheHat(g);
         drawShape.middleMedal(g);
         drawShape.redPartHat(g);
         drawShape.yelloPartHat(g);
-    }
+        drawShape.orangePart(g);
+        drawShape.horn(g);
+        drawShape.hatEye(g);
+    }   
 }
