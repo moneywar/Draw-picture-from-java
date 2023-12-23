@@ -16,6 +16,8 @@ public class Canvas extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        paint.background(g);
+        
         Tools.setStroke(4);
         //Body
         drawShape.Head(g);

@@ -1,6 +1,7 @@
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
@@ -88,13 +89,20 @@ public class Tools {
         paint(g, x, y, taget_Colour);
         Q.offer(new Node(x, y));
 
-        while(!Q.isEmpty()) {
+        while (!Q.isEmpty()) {
             Node current_Node = Q.poll();
 
             // if(getColorAtPixel(current_Node.x, current_Node.y + 1) != Color.BLACK) {
 
             // }
         }
+    }
+
+    public static void poly(Graphics g, int[] xPoly, int[] yPoly, Color fillColor) {
+        g.setColor(fillColor);
+        Polygon poly = new Polygon(xPoly, yPoly, xPoly.length);
+        g.fillPolygon(poly);
+        g.setColor(Color.BLACK);
     }
 
     private static void plot(Graphics g, int x, int y) {
@@ -108,10 +116,11 @@ public class Tools {
     }
 
     // public static Color getColorAtPixel(JFrame f, int x, int y) {
-    //     Rectangle rect = f.getContentPane().getBounds();
-    //     BufferedImage img = new BufferedImage(rect.width, rect.height, BufferedImage.TYPE_INT_ARGB);
-    //     f.getContentPane().paintAll(img.createGraphics());
-    //     return new Color(img.getRGB(x, y), true);
+    // Rectangle rect = f.getContentPane().getBounds();
+    // BufferedImage img = new BufferedImage(rect.width, rect.height,
+    // BufferedImage.TYPE_INT_ARGB);
+    // f.getContentPane().paintAll(img.createGraphics());
+    // return new Color(img.getRGB(x, y), true);
     // }
 
     public static void setStroke(int s) {
