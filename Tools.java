@@ -94,32 +94,32 @@ public class Tools {
 
             //South
             if(!check[current_Node.x][current_Node.y+1] 
-            && !getPixelColorAt(g, current_Node.x, current_Node.y + 1).equals(Color.BLACK) 
-            && !getPixelColorAt(g, current_Node.x, current_Node.y + 1).equals(replaceColor)) {
+            && !getPixelColorAt(current_Node.x, current_Node.y + 1).equals(Color.BLACK) 
+            && !getPixelColorAt(current_Node.x, current_Node.y + 1).equals(replaceColor)) {
                 paintColor(g2, current_Node.x, current_Node.y + 1, replaceColor);
                 Q.add(new Node(current_Node.x, current_Node.y + 1));
                 check[current_Node.x][current_Node.y+1] = true;
             }
             //North
             if(!check[current_Node.x][current_Node.y-1] 
-            && !getPixelColorAt(g, current_Node.x, current_Node.y - 1).equals(Color.BLACK) 
-            && !getPixelColorAt(g, current_Node.x, current_Node.y - 1).equals(replaceColor)) {
+            && !getPixelColorAt(current_Node.x, current_Node.y - 1).equals(Color.BLACK) 
+            && !getPixelColorAt(current_Node.x, current_Node.y - 1).equals(replaceColor)) {
                 paintColor(g2, current_Node.x, current_Node.y - 1, replaceColor);
                 Q.add(new Node(current_Node.x, current_Node.y - 1));
                 check[current_Node.x][current_Node.y-1] = true;
             }
             //East
             if(!check[current_Node.x+1][current_Node.y] 
-            && !getPixelColorAt(g, current_Node.x + 1, current_Node.y).equals(Color.BLACK) 
-            && !getPixelColorAt(g, current_Node.x + 1, current_Node.y).equals(replaceColor)) {
+            && !getPixelColorAt(current_Node.x + 1, current_Node.y).equals(Color.BLACK) 
+            && !getPixelColorAt(current_Node.x + 1, current_Node.y).equals(replaceColor)) {
                 paintColor(g2, current_Node.x + 1, current_Node.y, replaceColor);
                 Q.add(new Node(current_Node.x + 1, current_Node.y));
                 check[current_Node.x+1][current_Node.y] = true;
             }
             //West
             if(!check[current_Node.x-1][current_Node.y] 
-            && !getPixelColorAt(g, current_Node.x - 1, current_Node.y).equals(Color.BLACK) 
-            && !getPixelColorAt(g, current_Node.x - 1, current_Node.y).equals(replaceColor)) {
+            && !getPixelColorAt(current_Node.x - 1, current_Node.y).equals(Color.BLACK) 
+            && !getPixelColorAt(current_Node.x - 1, current_Node.y).equals(replaceColor)) {
                 paintColor(g2, current_Node.x - 1, current_Node.y, replaceColor);
                 Q.add(new Node(current_Node.x - 1, current_Node.y));
                 check[current_Node.x-1][current_Node.y] = true;
@@ -145,8 +145,7 @@ public class Tools {
         g.setColor(Color.BLACK);
     }
 
-    public static Color getPixelColorAt(Graphics g, int x, int y) {
-        g.drawImage(buffer, 0, 0, null);
+    public static Color getPixelColorAt(int x, int y) {
         return new Color(buffer.getRGB(x, y));
     }
 
