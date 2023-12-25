@@ -1,18 +1,16 @@
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.Robot;
 import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javax.management.Query;
-import javax.swing.JFrame;
-
 public class Tools {
     private static int stroke = 1;
+    //For getPixelColorAt
+    private static BufferedImage buffer;
 
     public static void quadraticBezier(Graphics g, int x1, int y1, int ctrlx, int ctrly, int x2, int y2) {
         int x = x1;
@@ -83,18 +81,50 @@ public class Tools {
         }
     }
 
-    public static void floodFill(Graphics g, int x, int y, Color taget_Colour) {
+    public static void floodFill(Graphics g, Graphics2D g2, int x, int y, Color replaceColor) {
         Queue<Node> Q = new LinkedList<>();
 
-        paint(g, x, y, taget_Colour);
+        paintColor(g2, x, y, replaceColor);
         Q.offer(new Node(x, y));
 
+        boolean[][] check = new boolean[601][601];
         while (!Q.isEmpty()) {
+            //System.out.println("a");
             Node current_Node = Q.poll();
 
-            // if(getColorAtPixel(current_Node.x, current_Node.y + 1) != Color.BLACK) {
-
-            // }
+            //South
+            if(!check[current_Node.x][current_Node.y+1] 
+            && !getPixelColorAt(g, current_Node.x, current_Node.y + 1).equals(Color.BLACK) 
+            && !getPixelColorAt(g, current_Node.x, current_Node.y + 1).equals(replaceColor)) {
+                paintColor(g2, current_Node.x, current_Node.y + 1, replaceColor);
+                Q.add(new Node(current_Node.x, current_Node.y + 1));
+                check[current_Node.x][current_Node.y+1] = true;
+            }
+            //North
+            if(!check[current_Node.x][current_Node.y-1] 
+            && !getPixelColorAt(g, current_Node.x, current_Node.y - 1).equals(Color.BLACK) 
+            && !getPixelColorAt(g, current_Node.x, current_Node.y - 1).equals(replaceColor)) {
+                paintColor(g2, current_Node.x, current_Node.y - 1, replaceColor);
+                Q.add(new Node(current_Node.x, current_Node.y - 1));
+                check[current_Node.x][current_Node.y-1] = true;
+            }
+            //East
+            if(!check[current_Node.x+1][current_Node.y] 
+            && !getPixelColorAt(g, current_Node.x + 1, current_Node.y).equals(Color.BLACK) 
+            && !getPixelColorAt(g, current_Node.x + 1, current_Node.y).equals(replaceColor)) {
+                paintColor(g2, current_Node.x + 1, current_Node.y, replaceColor);
+                Q.add(new Node(current_Node.x + 1, current_Node.y));
+                check[current_Node.x+1][current_Node.y] = true;
+            }
+            //West
+            if(!check[current_Node.x-1][current_Node.y] 
+            && !getPixelColorAt(g, current_Node.x - 1, current_Node.y).equals(Color.BLACK) 
+            && !getPixelColorAt(g, current_Node.x - 1, current_Node.y).equals(replaceColor)) {
+                paintColor(g2, current_Node.x - 1, current_Node.y, replaceColor);
+                Q.add(new Node(current_Node.x - 1, current_Node.y));
+                check[current_Node.x-1][current_Node.y] = true;
+            }
+            //System.out.println(current_Node.x + " " + current_Node.y);
         }
     }
 
@@ -109,22 +139,23 @@ public class Tools {
         g.fillRect(x, y, stroke, stroke);
     }
 
-    public static void paint(Graphics g, int x, int y, Color color) {
+    private static void paintColor(Graphics g, int x, int y, Color color) {
         g.setColor(color);
-        g.fillRect(x, y, 100, 100);
+        g.fillRect(x, y, 1, 1);
         g.setColor(Color.BLACK);
     }
 
-    // public static Color getColorAtPixel(JFrame f, int x, int y) {
-    // Rectangle rect = f.getContentPane().getBounds();
-    // BufferedImage img = new BufferedImage(rect.width, rect.height,
-    // BufferedImage.TYPE_INT_ARGB);
-    // f.getContentPane().paintAll(img.createGraphics());
-    // return new Color(img.getRGB(x, y), true);
-    // }
+    public static Color getPixelColorAt(Graphics g, int x, int y) {
+        g.drawImage(buffer, 0, 0, null);
+        return new Color(buffer.getRGB(x, y));
+    }
 
     public static void setStroke(int s) {
         stroke = s;
+    }
+
+    public static void setBuffer(BufferedImage b) {
+        buffer = b;
     }
 }
 
