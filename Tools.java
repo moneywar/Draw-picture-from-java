@@ -81,58 +81,48 @@ public class Tools {
         }
     }
 
-    public static void floodFill(Graphics g, Graphics2D g2, int x, int y, Color replaceColor) {
+    public static void floodFill(Graphics2D g2, int x, int y, Color replaceColor) {
         Queue<Node> Q = new LinkedList<>();
 
         paintColor(g2, x, y, replaceColor);
         Q.offer(new Node(x, y));
 
-        boolean[][] check = new boolean[601][601];
         while (!Q.isEmpty()) {
-            //System.out.println("a");
             Node current_Node = Q.poll();
 
             //South
-            if(!check[current_Node.x][current_Node.y+1] 
-            && !getPixelColorAt(current_Node.x, current_Node.y + 1).equals(Color.BLACK) 
+            if(!getPixelColorAt(current_Node.x, current_Node.y + 1).equals(Color.BLACK) 
             && !getPixelColorAt(current_Node.x, current_Node.y + 1).equals(replaceColor)) {
                 paintColor(g2, current_Node.x, current_Node.y + 1, replaceColor);
                 Q.add(new Node(current_Node.x, current_Node.y + 1));
-                check[current_Node.x][current_Node.y+1] = true;
             }
             //North
-            if(!check[current_Node.x][current_Node.y-1] 
-            && !getPixelColorAt(current_Node.x, current_Node.y - 1).equals(Color.BLACK) 
+            if(!getPixelColorAt(current_Node.x, current_Node.y - 1).equals(Color.BLACK) 
             && !getPixelColorAt(current_Node.x, current_Node.y - 1).equals(replaceColor)) {
                 paintColor(g2, current_Node.x, current_Node.y - 1, replaceColor);
                 Q.add(new Node(current_Node.x, current_Node.y - 1));
-                check[current_Node.x][current_Node.y-1] = true;
             }
             //East
-            if(!check[current_Node.x+1][current_Node.y] 
-            && !getPixelColorAt(current_Node.x + 1, current_Node.y).equals(Color.BLACK) 
+            if(!getPixelColorAt(current_Node.x + 1, current_Node.y).equals(Color.BLACK) 
             && !getPixelColorAt(current_Node.x + 1, current_Node.y).equals(replaceColor)) {
                 paintColor(g2, current_Node.x + 1, current_Node.y, replaceColor);
                 Q.add(new Node(current_Node.x + 1, current_Node.y));
-                check[current_Node.x+1][current_Node.y] = true;
             }
             //West
-            if(!check[current_Node.x-1][current_Node.y] 
-            && !getPixelColorAt(current_Node.x - 1, current_Node.y).equals(Color.BLACK) 
+            if(!getPixelColorAt(current_Node.x - 1, current_Node.y).equals(Color.BLACK) 
             && !getPixelColorAt(current_Node.x - 1, current_Node.y).equals(replaceColor)) {
                 paintColor(g2, current_Node.x - 1, current_Node.y, replaceColor);
                 Q.add(new Node(current_Node.x - 1, current_Node.y));
-                check[current_Node.x-1][current_Node.y] = true;
             }
             //System.out.println(current_Node.x + " " + current_Node.y);
         }
     }
 
-    public static void poly(Graphics g, int[] xPoly, int[] yPoly, Color fillColor) {
-        g.setColor(fillColor);
+    public static void poly(Graphics2D g2, int[] xPoly, int[] yPoly, Color fillColor) {
+        g2.setColor(fillColor);
         Polygon poly = new Polygon(xPoly, yPoly, xPoly.length);
-        g.fillPolygon(poly);
-        g.setColor(Color.BLACK);
+        g2.fillPolygon(poly);
+        g2.setColor(Color.BLACK);
     }
 
     private static void plot(Graphics g, int x, int y) {

@@ -49,10 +49,11 @@ public class Canvas extends JPanel {
         drawShape.hatEye(g2);
 
         // paint
-        paint.facePaint(g,g2);
-        paint.hatPaint(g, g2);
-        paint.hairPaint(g, g2);
-        paint.handPaint(g, g2);
+        paint.facePaint(g2);
+        paint.hatPaint(g2);
+        paint.hairPaint(g2);
+        paint.handPaint(g2);
+        paint.shirtPaint(g2);
         g.drawImage(buffer, 0, 0, null);
     }
 }

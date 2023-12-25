@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 public class paint {
-    public static void background(Graphics g) {
+    public static void background(Graphics2D g2) {
         int x = 1;
         int y = 1;
         for (int i = 0; i < 20; i++) {
@@ -19,7 +19,7 @@ public class paint {
                 if (i % 2 == 0) {
                     int[] xPoly = { x, x + 600, x + 600, x};
                     int[] yPoly = { y, y, y + 60, y + 60 };
-                    Tools.poly(g, xPoly, yPoly, trigColor);
+                    Tools.poly(g2, xPoly, yPoly, trigColor);
                     break;
                 }
                 //Normal Triangle (But some part is half) 
@@ -28,7 +28,7 @@ public class paint {
                     if (j == 1) {
                         int[] xPoly = { x, x + 31, x };
                         int[] yPoly = { y, y, y - 59 };
-                        Tools.poly(g, xPoly, yPoly, trigColor);
+                        Tools.poly(g2, xPoly, yPoly, trigColor);
                         x += 30;
                     } 
                     // Not First triangle
@@ -38,7 +38,7 @@ public class paint {
 
                         int[] xPoly = { x, px2, x + 30 };
                         int[] yPoly = { y, y, y - 59 };
-                        Tools.poly(g, xPoly, yPoly, trigColor);
+                        Tools.poly(g2, xPoly, yPoly, trigColor);
                         x += 60;
                     }
                 }
@@ -50,109 +50,126 @@ public class paint {
         }
     }
 
-    public static void facePaint(Graphics g, Graphics2D g2) {
+    public static void facePaint(Graphics2D g2) {
         //Face
         Color replaceColor = new Color(255,239,219);
-        Tools.floodFill(g, g2, 300, 420, replaceColor);
-        Tools.floodFill(g, g2, 375, 355, replaceColor);
+        Tools.floodFill(g2, 300, 420, replaceColor);
+        Tools.floodFill(g2, 375, 355, replaceColor);
+
+        Tools.floodFill(g2, 300, 545, replaceColor);
 
         //Eye 
         replaceColor = new Color(255,201,171);
-        Tools.floodFill(g, g2, 220, 390, replaceColor);
-        Tools.floodFill(g, g2, 380, 390, replaceColor);
+        Tools.floodFill(g2, 220, 390, replaceColor);
+        Tools.floodFill(g2, 380, 390, replaceColor);
         replaceColor = new Color(203,68,30);
-        Tools.floodFill(g, g2, 206, 377, replaceColor);
-        Tools.floodFill(g, g2, 394, 377, replaceColor);
+        Tools.floodFill(g2, 206, 377, replaceColor);
+        Tools.floodFill(g2, 394, 377, replaceColor);
 
         //Mouth
         replaceColor = new Color(232,156,131);
-        Tools.floodFill(g, g2, 300, 455, replaceColor);
+        Tools.floodFill(g2, 300, 455, replaceColor);
     }
 
-    public static void hairPaint(Graphics g, Graphics2D g2) {
+    public static void hairPaint(Graphics2D g2) {
         Color replaceColor = new Color(113,68,56);
-        Tools.floodFill(g, g2, 300, 350, replaceColor);
+        Tools.floodFill(g2, 300, 350, replaceColor);
 
-        Tools.floodFill(g, g2, 100, 450, replaceColor);
-        Tools.floodFill(g, g2, 99, 517, replaceColor);
-        Tools.floodFill(g, g2, 80, 570, replaceColor);
+        Tools.floodFill(g2, 100, 450, replaceColor);
+        Tools.floodFill(g2, 99, 517, replaceColor);
+        Tools.floodFill(g2, 80, 570, replaceColor);
 
-        Tools.floodFill(g, g2, 500, 450, replaceColor);
-        Tools.floodFill(g, g2, 501, 517, replaceColor);
-        Tools.floodFill(g, g2, 520, 570, replaceColor);
+        Tools.floodFill(g2, 500, 450, replaceColor);
+        Tools.floodFill(g2, 501, 517, replaceColor);
+        Tools.floodFill(g2, 520, 570, replaceColor);
     }
 
-    public static void hatPaint(Graphics g, Graphics2D g2) {
+    public static void hatPaint(Graphics2D g2) {
         //red part
         Color replaceColor = new Color(255,95,84);
-        Tools.floodFill(g, g2, 60, 314, replaceColor);
-        Tools.floodFill(g, g2, 88, 273, replaceColor);
-        Tools.floodFill(g, g2, 93, 248, replaceColor);
-        Tools.floodFill(g, g2, 120, 208, replaceColor);
+        Tools.floodFill(g2, 60, 314, replaceColor);
+        Tools.floodFill(g2, 88, 273, replaceColor);
+        Tools.floodFill(g2, 93, 248, replaceColor);
+        Tools.floodFill(g2, 120, 208, replaceColor);
 
-        Tools.floodFill(g, g2, 540, 314, replaceColor);
-        Tools.floodFill(g, g2, 512, 273, replaceColor);
-        Tools.floodFill(g, g2, 507, 248, replaceColor);
-        Tools.floodFill(g, g2, 480, 208, replaceColor);
+        Tools.floodFill(g2, 540, 314, replaceColor);
+        Tools.floodFill(g2, 512, 273, replaceColor);
+        Tools.floodFill(g2, 507, 248, replaceColor);
+        Tools.floodFill(g2, 480, 208, replaceColor);
 
         //orange part
         replaceColor = new Color(255,186,84);
-        Tools.floodFill(g, g2, 100, 300, replaceColor);
-        Tools.floodFill(g, g2, 214, 250, replaceColor);
-        Tools.floodFill(g, g2, 165, 173, replaceColor);
+        Tools.floodFill(g2, 100, 300, replaceColor);
+        Tools.floodFill(g2, 214, 250, replaceColor);
+        Tools.floodFill(g2, 165, 173, replaceColor);
 
-        Tools.floodFill(g, g2, 500, 300, replaceColor);
-        Tools.floodFill(g, g2, 386, 250, replaceColor);
-        Tools.floodFill(g, g2, 435, 173, replaceColor);
+        Tools.floodFill(g2, 500, 300, replaceColor);
+        Tools.floodFill(g2, 386, 250, replaceColor);
+        Tools.floodFill(g2, 435, 173, replaceColor);
 
         //yello part
         replaceColor = new Color(255,222,84);
-        Tools.floodFill(g, g2, 120, 250, replaceColor);
-        Tools.floodFill(g, g2, 144, 290, replaceColor);
+        Tools.floodFill(g2, 120, 250, replaceColor);
+        Tools.floodFill(g2, 144, 290, replaceColor);
 
-        Tools.floodFill(g, g2, 300, 230, replaceColor);
+        Tools.floodFill(g2, 300, 230, replaceColor);
 
-        Tools.floodFill(g, g2, 480, 250, replaceColor);
-        Tools.floodFill(g, g2, 456, 290, replaceColor);
+        Tools.floodFill(g2, 480, 250, replaceColor);
+        Tools.floodFill(g2, 456, 290, replaceColor);
 
         //green part
         replaceColor = new Color(80,168,67);
-        Tools.floodFill(g, g2, 208, 270, replaceColor);
+        Tools.floodFill(g2, 208, 270, replaceColor);
 
-        Tools.floodFill(g, g2, 300, 180, replaceColor);
-        Tools.floodFill(g, g2, 300, 260, replaceColor);
+        Tools.floodFill(g2, 300, 180, replaceColor);
+        Tools.floodFill(g2, 300, 260, replaceColor);
 
-        Tools.floodFill(g, g2, 392, 270, replaceColor);
+        Tools.floodFill(g2, 392, 270, replaceColor);
 
         //hat eye
         replaceColor = new Color(0,0,0);
-        Tools.floodFill(g, g2, 200, 220, replaceColor);
-        Tools.floodFill(g, g2, 400, 220, replaceColor);
+        Tools.floodFill(g2, 200, 220, replaceColor);
+        Tools.floodFill(g2, 400, 220, replaceColor);
         replaceColor = new Color(255,255,255);
-        Tools.floodFill(g, g2, 170, 215, replaceColor);
-        Tools.floodFill(g, g2, 430, 220, replaceColor);
+        Tools.floodFill(g2, 170, 215, replaceColor);
+        Tools.floodFill(g2, 430, 220, replaceColor);
 
         //horn 
         replaceColor = new Color(255,232,97);
-        Tools.floodFill(g, g2, 140, 110, replaceColor);
-        Tools.floodFill(g, g2, 460, 110, replaceColor);
+        Tools.floodFill(g2, 140, 110, replaceColor);
+        Tools.floodFill(g2, 460, 110, replaceColor);
 
         //white part
         replaceColor = new Color(255,255,255);
-        Tools.floodFill(g, g2, 300, 275, replaceColor);
+        Tools.floodFill(g2, 300, 275, replaceColor);
 
-        Tools.floodFill(g, g2, 140, 370, replaceColor);
-        Tools.floodFill(g, g2, 200, 338, replaceColor);
-        Tools.floodFill(g, g2, 248, 310, replaceColor);
+        Tools.floodFill(g2, 140, 370, replaceColor);
+        Tools.floodFill(g2, 200, 338, replaceColor);
+        Tools.floodFill(g2, 248, 310, replaceColor);
 
-        Tools.floodFill(g, g2, 460, 370, replaceColor);
-        Tools.floodFill(g, g2, 400, 338, replaceColor);
-        Tools.floodFill(g, g2, 352, 310, replaceColor);
+        Tools.floodFill(g2, 460, 370, replaceColor);
+        Tools.floodFill(g2, 400, 338, replaceColor);
+        Tools.floodFill(g2, 352, 310, replaceColor);
     }
 
-    public static void handPaint(Graphics g, Graphics2D g2) {
+    public static void handPaint(Graphics2D g2) {
         Color replaceColor = new Color(255,239,219);
-        Tools.floodFill(g, g2, 150, 540, replaceColor);
-        Tools.floodFill(g, g2, 450, 540, replaceColor);
+        Tools.floodFill(g2, 150, 540, replaceColor);
+        Tools.floodFill(g2, 450, 540, replaceColor);
+    }
+
+    public static void shirtPaint(Graphics2D g2) {
+        Color replaceColor = new Color(68,53,52);
+        Tools.floodFill(g2, 250, 575, replaceColor);
+        Tools.floodFill(g2, 350, 575, replaceColor);
+
+        replaceColor = new Color(203,58,51);
+        Tools.floodFill(g2, 280, 552, replaceColor);
+        Tools.floodFill(g2, 288, 565, replaceColor);
+
+        Tools.floodFill(g2, 300, 578, replaceColor);
+
+        Tools.floodFill(g2, 320, 552, replaceColor);
+        Tools.floodFill(g2, 312, 565, replaceColor);
     }
 }
