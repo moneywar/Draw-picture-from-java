@@ -1,18 +1,17 @@
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import javax.swing.*;
 
-public class Canvas extends JPanel {
+public class Assignment1_65050366_65050070 extends JPanel {
     public static void main(String[] args) {
-        Canvas m = new Canvas();
+        Assignment1_65050366_65050070 m = new Assignment1_65050366_65050070();
 
         JFrame f = new JFrame();
         f.add(m);
         f.setTitle("Canvas");
-        f.setSize(700, 700);
+        f.setSize(600, 600);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
 
@@ -30,23 +29,23 @@ public class Canvas extends JPanel {
         Tools.BresenhamLine(g2, 0, 600, 600, 600);
 
         // Body
-        drawShape.Head(g2);
-        drawShape.mouse(g2);
-        drawShape.eye(g2);
-        drawShape.eyeBall(g2);
-        drawShape.hair(g2);
-        drawShape.lowerHat(g2);
-        drawShape.hand(g2);
-        drawShape.shirt(g2);
+        drawLine.Head(g2);
+        drawLine.mouse(g2);
+        drawLine.hair(g2);
+        drawLine.eye(g2);
+        drawLine.eyeBall(g2);
+        drawLine.lowerHat(g2);
+        drawLine.hand(g2);
+        drawLine.shirt(g2);
 
         // Hat
-        drawShape.moustacheHat(g2);
-        drawShape.middleMedal(g2);
-        drawShape.redPartHat(g2);
-        drawShape.yelloPartHat(g2);
-        drawShape.orangePart(g2);
-        drawShape.horn(g2);
-        drawShape.hatEye(g2);
+        drawLine.moustacheHat(g2);
+        drawLine.middleMedal(g2);
+        drawLine.redPartHat(g2);
+        drawLine.yelloPartHat(g2);
+        drawLine.orangePart(g2);
+        drawLine.horn(g2);
+        drawLine.hatEye(g2);
 
         // paint
         paint.facePaint(g2);
@@ -54,6 +53,14 @@ public class Canvas extends JPanel {
         paint.hairPaint(g2);
         paint.handPaint(g2);
         paint.shirtPaint(g2);
+
+        // shadow
+        Tools.setStroke(2);
+        paint.hairShadow(g2);
+        paint.faceShadow(g2);
+        paint.handShadow(g2);
+        paint.shirtShadow(g2);
+        paint.hatShadow(g2);
         g.drawImage(buffer, 0, 0, null);
     }
-}
+}                                                                               
